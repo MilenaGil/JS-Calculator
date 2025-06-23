@@ -1,2 +1,2 @@
-# JS-Calculator
+# JavaScript-Calculator
 A simple calculator application built using JavaScript. More updates soon, work in progress...
