@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CALCULATOR</title>
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <p>CALCULATOR</p>
+    <p class="js-display"></p>
+    <p>
+      <button onclick="
+        updateCalculations('1');
+      ">1</button>
+
+      <button onclick="
+        updateCalculations('2');
+      ">2</button>
+
+      <button onclick="
+        updateCalculations('3');
+      ">3</button>
+
+      <button onclick="
+        updateCalculations(' + ');
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculations('4');
+      ">4</button>
+
+      <button onclick="
+        updateCalculations('5');
+      ">5</button>
+
+      <button onclick="
+        updateCalculations('6');
+      ">6</button>
+
+      <button onclick="
+        updateCalculations(' - ');
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculations('7');
+      ">7</button>
+
+      <button onclick="
+        updateCalculations('8');
+      ">8</button>
+
+      <button onclick="
+        updateCalculations('9');
+      ">9</button>
+
+      <button onclick="
+        updateCalculations(' * ');
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculations('0');
+      ">0</button>
+
+      <button onclick="
+        updateCalculations('.');
+      ">.</button>
+
+      <button onclick="
+        updateCalculations('=');
+      ">=</button>
+
+      <button onclick="
+        updateCalculations( ' / ');
+      ">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        clearCalculations();
+      ">Clear</button>
+    </p>
+
+    <script>
+      let calculation = localStorage.getItem('calculation');
+      if (calculation===null) {
+        localStorage.setItem('calculation', '');
+      }
+      document.querySelector('.js-display').innerText=String(calculation);
+
+      function updateCalculations(thing){
+        calculation = localStorage.getItem('calculation'); 
+        if (thing === '='){
+          calculation=eval(calculation).toString();
+          localStorage.setItem('calculation',calculation);
+        }else{
+          calculation+=thing;
+          localStorage.setItem('calculation',calculation);
+        }
+        document.querySelector('.js-display').innerText=String(calculation);
+      }
+
+      function clearCalculations(){
+        calculation='';
+        localStorage.setItem('calculation',calculation);
+        document.querySelector('.js-display').innerText=`Cleared.`;
+      }
+    </script>
+  </body>
+</html>
